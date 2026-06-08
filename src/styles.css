@@ -1,0 +1,308 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Mangalya Cottages Resort — Luxury nature-inspired design system.
+ * Palette: Forest Green, Gold, Cream, Charcoal.
+ * All colors use oklch. Tokens map to Tailwind utilities via @theme inline.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-earth: var(--earth);
+  --color-cream: var(--cream);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Poppins", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Brand palette */
+  --forest: #1f4d3a;
+  --forest-deep: #102a20;
+  --earth: #6f6043;
+  --cream: #f8f5ef;
+  --gold: #c9a227;
+  --gold-foreground: #1f261f;
+  --charcoal: #2b2b2b;
+
+  --background: #f8f5ef;
+  --foreground: #2b2b2b;
+
+  --card: #fffdf8;
+  --card-foreground: #2b2b2b;
+  --popover: #fffdf8;
+  --popover-foreground: #2b2b2b;
+
+  --primary: #1f4d3a;
+  --primary-foreground: #f8f5ef;
+
+  --secondary: #6f6043;
+  --secondary-foreground: #f8f5ef;
+
+  --muted: #eee8db;
+  --muted-foreground: #6e6a60;
+
+  --accent: #c9a227;
+  --accent-foreground: #1f261f;
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+
+  --border: #ded7c8;
+  --input: #ded7c8;
+  --ring: #c9a227;
+
+  --chart-1: oklch(0.38 0.066 162);
+  --chart-2: oklch(0.74 0.13 88);
+  --chart-3: oklch(0.5 0.07 62);
+  --chart-4: oklch(0.6 0.1 162);
+  --chart-5: oklch(0.65 0.12 70);
+
+  --sidebar: oklch(0.99 0.005 84);
+  --sidebar-foreground: oklch(0.27 0.035 162);
+  --sidebar-primary: oklch(0.38 0.066 162);
+  --sidebar-primary-foreground: oklch(0.97 0.012 84);
+  --sidebar-accent: oklch(0.93 0.012 84);
+  --sidebar-accent-foreground: oklch(0.27 0.035 162);
+  --sidebar-border: oklch(0.88 0.018 84);
+  --sidebar-ring: oklch(0.74 0.13 88);
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--forest-deep) 12%, transparent) 0%,
+    color-mix(in oklab, var(--forest-deep) 35%, transparent) 45%,
+    color-mix(in oklab, var(--forest-deep) 82%, transparent) 100%
+  );
+  --gradient-gold: linear-gradient(135deg, #ead37a 0%, #c9a227 48%, #a77f12 100%);
+  --gradient-forest: linear-gradient(150deg, var(--forest) 0%, var(--forest-deep) 100%);
+  --gradient-cream: linear-gradient(180deg, #fffdf8 0%, #f8f5ef 100%);
+
+  /* Shadows */
+  --shadow-soft: 0 18px 40px -24px color-mix(in oklab, var(--forest-deep) 45%, transparent);
+  --shadow-card: 0 24px 60px -30px color-mix(in oklab, var(--forest-deep) 55%, transparent);
+  --shadow-gold: 0 16px 40px -18px color-mix(in oklab, var(--gold) 60%, transparent);
+}
+
+.dark {
+  --background: oklch(0.22 0.025 162);
+  --foreground: oklch(0.95 0.012 84);
+  --card: oklch(0.26 0.03 162);
+  --card-foreground: oklch(0.95 0.012 84);
+  --popover: oklch(0.26 0.03 162);
+  --popover-foreground: oklch(0.95 0.012 84);
+  --primary: oklch(0.74 0.13 88);
+  --primary-foreground: oklch(0.22 0.03 162);
+  --secondary: oklch(0.5 0.07 62);
+  --secondary-foreground: oklch(0.95 0.012 84);
+  --muted: oklch(0.3 0.03 162);
+  --muted-foreground: oklch(0.72 0.02 110);
+  --accent: oklch(0.74 0.13 88);
+  --accent-foreground: oklch(0.22 0.03 162);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.74 0.13 88);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+}
+
+/* ---- Utilities ---- */
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility glass {
+  background-color: color-mix(in oklab, var(--cream) 16%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid color-mix(in oklab, white 22%, transparent);
+}
+
+@utility glass-card {
+  background: color-mix(in oklab, var(--card) 78%, transparent);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid color-mix(in oklab, white 55%, transparent);
+}
+
+@utility gradient-hero {
+  background-image: var(--gradient-hero);
+}
+
+@utility gradient-gold {
+  background-image: var(--gradient-gold);
+}
+
+@utility gradient-forest {
+  background-image: var(--gradient-forest);
+}
+
+@utility gradient-cream {
+  background-image: var(--gradient-cream);
+}
+
+@utility text-gradient-gold {
+  background-image: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility shadow-gold {
+  box-shadow: var(--shadow-gold);
+}
+
+@utility parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@utility eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+@utility luxury-card {
+  border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--card) 96%, transparent), color-mix(in oklab, var(--cream) 88%, transparent));
+  box-shadow: var(--shadow-soft);
+}
+
+@utility image-lift {
+  box-shadow: 0 28px 70px -34px color-mix(in oklab, var(--forest-deep) 70%, transparent);
+}
+
+/* Scroll reveal */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+@utility reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes ken-burns {
+  0% { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.12) translateY(-1.5%); }
+}
+
+@keyframes shimmer-pan {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@utility animate-float {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+@utility animate-ken-burns {
+  animation: ken-burns 18s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .animate-ken-burns, .animate-float { animation: none; }
+}
